@@ -1,0 +1,40 @@
+<div class="text-center">
+  <h2>Pipe & Custom Pipe Tutorial</h2>
+  <app-user>HIIIII</app-user>
+</div>
+<div class="card">
+    <div class="card-header bg-success text-white">User List</div>
+    <div class="card-body">
+        <table class="table table-bordered table-sm">
+            <thead>
+              <tr>
+                <th>Sr No</th>
+                <th>Name</th>
+                <th>Dob</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Mobile</th>
+                <th>Alt Mobile</th>
+                <th>Created Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of userList;let i= index">
+                <td>{{i+1}}</td> 
+                 <td>{{user.userName | titlecase| na}}</td>
+                 <td>{{user.userDob| na}}</td>
+                 <td>{{user.userCity| lowercase| na}}</td>
+                 <td>{{user.userState | uppercase| na}}</td>
+                 <td>{{user.userMobile| na}}</td>
+                 <td>{{user.userAltMobile| na:'na'}}</td>
+                 <td>{{user.createdDate | date:'dd-MMM-yy'| na}}</td> 
+                 <td class="text-center">
+                     <button class="btn btn-sm btn-success mr-2" [routerLink]="['/updateUser',user.userId]"   >Edit</button>
+                     <button class="btn btn-sm btn-secondary" (click)="delete(user.userId)">Delete</button>
+                 </td>
+              </tr> 
+            </tbody>
+          </table>
+    </div>
+  </div>

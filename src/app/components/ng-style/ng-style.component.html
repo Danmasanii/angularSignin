@@ -1,0 +1,145 @@
+<div class="row" [style.color]="textColor">
+    <div [ngClass]="isSidePanel? 'col-md-8':'col-md-12'">
+        <div class="card">
+            <div class="card-header bg-secondary">
+                <div class="row">
+                    <div class="col-md-6 text-white">
+                        ngStyle Details
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button class="btn btn-sm btn-success" (click)="openSidePanel()">Side Panel</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="container text-center">
+                    <h5> ngStyle directive is a attribute directive. It helps us to add dynamic css way of using it as
+                        [ngStyel]="your conditional css" or [style.width.%] with property name.</h5>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="bg-light p-2 border border-primary">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            dynamic css with value => <br>
+                                            <h4 class="card-text">[ngStyle]="'background-color':student.colorCode" </h4>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row pt-2">
+                                        <div class="col-md-12  ">
+                                            dynamic css property =><br>
+                                            <h4>[style.width.%]="student.attendance"</h4>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+                                    <div class="row pt-2">
+                                        <div class="col-md-12  ">
+                                            adding dynamic css collection which is coming from object <h4
+                                                class="card-text">[ngStyle]="customStyle" </h4>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="bg-light p-2 border border-primary">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12 ">
+                                            <table class="table table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Code</th>
+                                                        <th>Name</th>
+                                                        <th>City</th>
+                                                        <th>Stream</th>
+                                                        <th class="text-center">Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let student of studentList">
+                                                        <td [ngStyle]="{'background-color':student.colorCode}">
+                                                            {{student.colorCode}}
+                                                        </td>
+                                                        <td>{{student.name}}</td>
+                                                        <td>{{student.city}}</td>
+                                                        <td>{{student.stream}}</td>
+                                                        <td class="text-center">
+                                                            <div class="progress">
+                                                                <div [style.width.%]="student.attendance"
+                                                                    class="progress-bar progress-bar-striped progress-bar-animated">
+                                                                    {{student.attendance}} %</div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div [style]="getStyle()" class="col-md-4">
+        <div class="card">
+            <div class="card-header bg-secondary">
+                <div class="row">
+                    <div class="col-md-6 text-white">
+                        Side Panel
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <i (click)="closeSidePanel()" class="fa fa-close icon text-white handicon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row pt-1">
+                    <div class="col-md-12">
+                        <button type="button" (click)="toggleModel()" class="btn btn-primary" data-toggle="modal"
+                            data-target="#myModal">
+                            Open modal
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <label>Select Color</label>
+                        <input type="color" class="form-control" [(ngModel)]="textColor"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal" id="myModal" [ngStyle]="getModelStatus()">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Modal Heading</h4>
+                <button type="button" class="close" (click)="toggleModel()" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                Modal body..
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" (click)="toggleModel()" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

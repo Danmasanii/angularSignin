@@ -1,0 +1,149 @@
+<div class="container text-center">
+    <p> Directives are custom HTML attributes which tell angular to change the style or behavior of the Dom elements.
+    </p>
+</div>
+<div class="card-columns">
+    <div class="card bg-info text-center">
+        <div class="card-body text-center">
+            <h3 class="card-text">ngIf Directives </h3>
+        </div>
+    </div>
+    <div class="card bg-info text-center">
+        <div class="card-body text-center">
+            <h4 class="card-text">show hide with variable using </h4>
+        </div>
+    </div>
+    <div class="card bg-info text-center">
+        <div class="card-body text-center">
+            <h4 class="card-text">condition wise icon using ngIf </h4>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="bg-light p-2 border border-primary pb-4">
+            <p> If value provided to ngIf is true element will be visible else
+                removed from DOM means hidden</p>
+            <p> <span class="font-weight-bold">*ngIf="isShow" </span>-> using variable </p>
+            <p><span class="font-weight-bold">*ngIf="getVisibleValue()"</span> -> using fuction returning boolean value
+            </p>
+            <p><span class="font-weight-bold">*ngIf="student.gender == 'male'"</span> -> compare which give boolean
+                value </p>
+            <p>so ngIf require boolean value doesnt
+                matter it is coming from</p>
+            <ul class="pb-3">
+                <li>variable</li>
+                <li>function</li>
+                <li>comparing value there itself</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="bg-light p-2 border border-primary">
+            <div class="row">
+                <div class="col-md-12">
+                    isShow variable current value => {{isShow}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="bg-light p-2" style="height: 50px">
+                        <div class="bg-secondary text-white text-center" *ngIf="isShow"
+                            style="height: 50px;width: 100%;line-height: 50px;">
+                            Block using ngIf Directive
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-2">
+                <div class="col-md-12 text-center">
+                    using Event=> <span class="font-weight-bold">(click)="show()"</span>
+                </div>
+            </div>
+            <div class="row pt-2">
+                <div class="col-md-6 text-center">
+                    <button class="btn  btn-success" (click)="show()">Show Block </button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <button class="btn  btn-danger" (click)="hide()">Hide Block </button>
+                </div>
+            </div>
+            <hr>
+            <div class="row pt-2">
+                <div class="col-md-12 text-center">
+                    changing value in html itself => <span class="font-weight-bold">(click)="isShow = true"</span>
+                </div>
+            </div>
+            <div class="row pt-2">
+                <div class="col-md-6 text-center">
+                    <button class="btn  btn-success" (click)="isShow = true">show</button>
+                </div>
+                <div class="col-md-6 text-center">
+                    <button class="btn  btn-danger" (click)="isShow = false">Hide </button>
+                </div>
+            </div>
+            <hr>
+            <div class="row pt-1">
+                <div class="col-md-12 text-center">
+                    toggle => <span class="font-weight-bold"> (click)="isShow = !isShow"</span>
+                </div>
+            </div>
+            <div class="row pt-1">
+                <div class="col-md-12 text-center">
+                    <button class="btn  btn-success" (click)="isShow = !isShow">toggle</button>
+                </div>
+            </div>
+            <div class="row pt-1">
+                <div class="col-md-12">
+                    <div class="bg-light p-2" style="height: 50px">
+                        <div class="bg-success text-white text-center" *ngIf="getVisibleValue()"
+                            style="height: 50px;width: 100%;line-height: 50px;">
+                            Block using function which is returning value
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="bg-light p-2 border border-primary">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>City</th>
+                                        <th>Stream</th>
+                                        <th class="text-center">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let student of studentList">
+                                        <td>
+                                            <i class="fa fa-male icon text-primary"
+                                                *ngIf="student.gender == 'male'"></i>
+                                            <i class="fa fa-female icon text-primary"
+                                                *ngIf="student.gender == 'female'"></i>
+                                            {{student.name}}
+                                        </td>
+                                        <td>{{student.city}}</td>
+                                        <td>{{student.stream}}</td>
+                                        <td class="text-center">
+                                            <i class="fa fa-user icon text-success" *ngIf="student.isActive"></i>
+                                            <i class="fa fa-user-times icon text-danger" *ngIf="!student.isActive"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

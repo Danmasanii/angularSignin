@@ -1,0 +1,20 @@
+<!-- <div class="alert alert-success">
+ <ng-content></ng-content>
+</div> -->
+
+<div #progress id="progress-container" class="row nbp-progress-container">
+    <div class="progress-container container">
+        <div #step id="setp-container" class="progress-step-container">
+            <div *ngFor="let stepConf of nbpConfiguration; let stepIndex:index"
+            class="{{_nbpWidth}} pad-l-5 pad-r-5 {{stepIndex ==0?_nbpOffset:null}}">
+            <div class="progress" [ngClass]="{'active':stepConf.active || stepConf.fillPercent === 100}">
+                <div class="progress-bar" [ngStyle]="{width:stepConf.fillPercent + '%'}"></div>
+            </div>
+            <div class="progress-setp-name" [ngClass]="{'active': stepConf.active|| stepConf.fillPercent === 100}">
+                {{stepConf.lable}}
+            </div>
+        </div>
+        </div>
+    </div>
+    <ng-content></ng-content>
+</div>

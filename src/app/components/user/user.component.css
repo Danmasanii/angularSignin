@@ -1,0 +1,57 @@
+#progress-container.header {
+    border-top:none !important;
+}
+
+.row .nbp-progress-container {
+    background-color: #f2f2f2;
+    margin-left: -25px;
+    margin-right: -25px;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+.progress-container {
+    display: table;
+}
+
+.progress-step-container {
+    height: 5em;
+    display: table-cell;
+    vertical-align: middle;
+}
+.progress {
+    height: .875rem;
+    background-color: #f2f2f2;
+    border-radius:.875rem;
+    border:.125rem solid #ccc;
+    margin-bottom: .25rem;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+.progress .active {
+    border: .125rem solid #258900;
+}
+.progress-bar {
+    border-radius: .875em;
+    background-color: #258900;
+    box-shadow: none;
+}
+
+.progress-setp-name {
+    position: relative;
+    text-align: center;
+    font-size: .625em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #6f6f6f;
+}
+
+.progress-setp-name::after {
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+    text-align: center;
+    font-size: .625em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #6f6f6f;
+}

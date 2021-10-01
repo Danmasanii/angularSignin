@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-header bg-success">User Registration</div>
+    <div class="card-body">
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4">Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="userObj.userName" name="userName"  placeholder="Enter Name">
+                </div> 
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4">Date Of Birth</label>
+                    <input type="date" class="form-control" [(ngModel)]="userObj.userDob" name="userDob"   >
+                </div> 
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4">City</label>
+                    <input type="text" class="form-control" [(ngModel)]="userObj.userCity" name="userCity"  placeholder="Enter City">
+                </div> 
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4">Select State</label>
+                    <select  class="form-control" [(ngModel)]="userObj.userState" name="userState"> 
+                        <select>Select State</select>
+                        <option value="Mah">Maharashtra</option>
+                        <option value="Del">Delhi</option>
+                        <option value="Goa">Goa</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4">Mobile</label>
+                    <input type="text" class="form-control" [(ngModel)]="userObj.userMobile" name="userMobile"  placeholder="Enter Mobile">
+                </div> 
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4">Alt Mobile</label>
+                    <input type="text" class="form-control" [(ngModel)]="userObj.userAltMobile" name="userAltMobile"  placeholder="Enter Alt Mobile">
+                </div> 
+            </div>
+            <button type="button" (click)="saveUser()" class="btn btn-primary">Save User</button>
+        </form>
+    </div>
+</div>
